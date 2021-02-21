@@ -113,7 +113,7 @@ describe('EmployerService', () => {
         await service.deleteEmployer(mockEmployerModel.id);
 
         expect(service.getEmployer).toHaveBeenCalledWith(mockEmployerModel.id);
-        expect(mockRepository.delete).toBeCalledWith(mockEmployerModel);
+        expect(mockRepository.delete).toBeCalledWith(mockEmployerModel.id);
       });
 
       it('should return a exception when recieve a invalid id', async () => {
