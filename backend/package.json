@@ -19,7 +19,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "postgres:start": "docker run -d -p -e POSTGRES_PASSWORD=postgres 5432:5432 --name postgres postgres:11"
+    "postgres:start": "docker run -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d --name postgres postgres:11",
+    "database:create": "docker exec postgres psql -U postgres postgres -c \"CREATE DATABASE $(grep DB_NAME .env | cut -d= -f 2)\""
+
   },
   "dependencies": {
     "@nestjs/common": "^7.5.1",
