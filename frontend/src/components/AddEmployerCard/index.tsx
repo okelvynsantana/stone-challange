@@ -34,7 +34,7 @@ export function AddEmployerCard({ fetchData }: AddEmployerCardProps) {
     async (values: Employer, { resetForm }: FormikHelpers<Employer>) => {
       setLoading(true)
       try {
-        await api.post('/employers', values)
+        await api.post('/employers', { ...values, age: Number(values.age) })
 
         toast({
           title: 'Tudo certo!',

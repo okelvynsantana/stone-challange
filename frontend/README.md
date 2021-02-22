@@ -5,6 +5,10 @@
 ## Descrição
 
 Api desenvolvida para o desafio para vaga da Stone.
+
+<p align="center">
+  <img src="public/assets/screenshot.jpeg">
+</p>
 ## Como rodar o projeto?
 
 Primeiro rode o comando abaixo para rodar a aplicação no ambiente de desenvolvimento:

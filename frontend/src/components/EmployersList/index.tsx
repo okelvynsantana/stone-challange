@@ -96,7 +96,7 @@ export default function EmployersList({
     setEmployersData(employers)
     setFilter('')
     setFilterby('')
-  }, [])
+  }, [filter, filterBy, employers, employersData])
 
   const handleShowUser = useCallback(
     (employer: Employer) => {
@@ -157,7 +157,15 @@ export default function EmployersList({
               alignItems="flex-end"
             >
               <Flex>
-                <Flex as="form" flexDir="column" w="100%">
+                <Flex
+                  as="form"
+                  flexDir="column"
+                  w="100%"
+                  onSubmit={e => {
+                    e.preventDefault()
+                    filterTable()
+                  }}
+                >
                   <Flex>
                     <Select
                       placeholder="Filtrar por..."
@@ -182,6 +190,7 @@ export default function EmployersList({
                       borderRightRadius="none"
                     />
                     <Button
+                      type="submit"
                       borderLeftRadius="none"
                       size="md"
                       background="brand.primaryLighten"
@@ -189,7 +198,6 @@ export default function EmployersList({
                       _hover={{
                         background: shade(0.2, '#42ec9a'),
                       }}
-                      onClick={filterTable}
                     >
                       <SearchIcon></SearchIcon>
                     </Button>
